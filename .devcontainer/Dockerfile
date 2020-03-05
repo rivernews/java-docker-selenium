@@ -21,8 +21,13 @@ FROM selenium/standalone-chrome:3.141.59-zirconium
 #
 # use host's /dev/shm
 #
-# $ docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59-zirconium
+# $ docker run --rm -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59-zirconium bash -c ". /opt/bin/entry_point.sh"
+# 
+# or in detached mode:
+# docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59-zirconium
 #
 # or use shm-size = 2g
-#
-# $ docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome:3.141.59-zirconium
+# $ docker run --rm -p 4444:4444 --shm-size 2g selenium/standalone-chrome:3.141.59-zirconium bash -c ". /opt/bin/entry_point.sh"
+# 
+# detached mode:
+# docker run -d -p 4444:4444 --shm-size 2g selenium/standalone-chrome:3.141.59-zirconium
